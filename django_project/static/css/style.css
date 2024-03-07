@@ -1,0 +1,39 @@
+h1 {
+    color: #0052EA;
+}
+
+form {
+    max-width: 400px;
+}
+
+lable,
+input,
+textarea,
+select {
+    display: block;
+    width: 100%;
+}
+
+input[type="submit"] {
+    display: inline-block;
+    width: auto;
+}
+
+.errolist {
+    padding: 0;
+    margin: 0;
+}
+
+.errolist li {
+    color: red;
+    list-style: none;
+}
+
+.alert {
+    padding: 0.5rem;
+}
+
+.alert-success {
+    background-color: #ba2121;
+    color: #fff;
+}
