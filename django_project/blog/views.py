@@ -1,6 +1,7 @@
 from django.shortcuts import render, redirect, get_object_or_404
 from django.http import HttpRequest
 from django.contrib import messages
+from django.contrib.auth.decorators import login_required
 from .models import Post
 from .forms import PostForm
 
@@ -11,11 +12,11 @@ def home(request: HttpRequest):
     context = {"posts": posts}
     return render(request, "blog/home.html", context)
 
-
 def about(requset: HttpRequest):
     return render(requset, "blog/about.html")
 
 
+@login_required
 def create_post(request: HttpRequest):
     method = request.method
     if method == "GET":
@@ -32,6 +33,7 @@ def create_post(request: HttpRequest):
             return render(request, "blog/post_form.html", {"form": form})
 
 
+@login_required
 def edit_post(request: HttpRequest, id):
     post = get_object_or_404(Post, id=id)
     method = request.method
@@ -50,6 +52,7 @@ def edit_post(request: HttpRequest, id):
             return render(request, "blog/post_form.html", {"form": form})
 
 
+@login_required
 def delete_post(request: HttpRequest, id):
     post = get_object_or_404(Post, pk=id)
     context = {"post": post}
