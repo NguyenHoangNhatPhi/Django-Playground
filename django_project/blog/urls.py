@@ -5,4 +5,5 @@ urlpatterns = [
     path("", views.home, name="posts"),
     path("about/", views.about, name="about"),
     path("post/create", views.create_post, name="post-create"),
+    path("post/edit/<int:id>/", views.edit_post, name="post-edit"),
 ]
