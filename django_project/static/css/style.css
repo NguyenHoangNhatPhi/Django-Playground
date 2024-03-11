@@ -24,7 +24,7 @@ input[type="submit"] {
     margin: 0;
 }
 
-.errolist li {
+.errorlist li {
     color: red;
     list-style: none;
 }
