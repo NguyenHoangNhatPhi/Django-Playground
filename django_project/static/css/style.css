@@ -34,6 +34,12 @@ input[type="submit"] {
 }
 
 .alert-success {
+    background-color: #5cb85c;
+    color: #fff;
+}
+
+.alert-error{
     background-color: #ba2121;
     color: #fff;
+
 }
