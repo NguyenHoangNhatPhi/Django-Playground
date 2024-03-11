@@ -46,5 +46,18 @@ def edit_post(request: HttpRequest, id):
             messages.success(request, "The post has been updated successfully.")
             return redirect("posts")
         else:
-            messages.error(request, 'Please correct the following errors:')
-            return render(request,'blog/post_form.html',{'form':form})
+            messages.error(request, "Please correct the following errors:")
+            return render(request, "blog/post_form.html", {"form": form})
+
+
+def delete_post(request: HttpRequest, id):
+    post = get_object_or_404(Post, pk=id)
+    context = {"post": post}
+    method = request.method
+
+    if method == "GET":
+        return render(request, "blog/post_confirm_delete.html", context)
+    elif method == "POST":
+        post.delete()
+        messages.success(request, "The post has been deleted successfully.")
+        return redirect("posts")
